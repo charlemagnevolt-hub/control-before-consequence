@@ -5,6 +5,7 @@
 - Where should control live in distributed systems?
 - How do we prevent over-constraining the system?
 
+
 ## Hypothesis
 
 Systems need:
