@@ -1,4 +1,17 @@
+Most systems don’t fail after execution.
+They fail at the moment of execution.
+
+
 > Reliable AI is a control problem — not a model problem.
+
+
+
+# The Problem
+Most approaches focus on observability and post-hoc correction.
+
+But they don’t answer:
+What guarantees that a system won't enter a non-admissible state before we detect it.
+
 
 # Control Before Consequence
 A conceptual reframing of Agentic AI systems as a control problem under uncertainty.
@@ -33,16 +46,18 @@ Allowed   Blocked / constrained
    v
 Bounded execution
 
+> Control shifts from observing behavior to constraining admissibility at runtime.
+
 
 ## Core Idea
-As AI systems become increasingly agentic the central challenge shifts
+As AI systems become increasingly agentic, the central challenge shifts
 from what systems know to what they are allowed to do.
 
 Traditional governance approaches define intent externally,
 but fail to ensure that behavior remains controllable at runtime.
 
 Agentic systems generate behavior internally, operate under uncertainty, 
-and evolve over time. This makes static policies insufficient.
+and evolve over time — making static policies insufficient.
 
 
 ## The Shift
@@ -61,7 +76,7 @@ The question becomes:
 
 > Should this action be allowed to happen at all?
   
-If this cannot be resolved at execution time, 
+If this is not resolved at execution time, 
 we are operating in detection — not control.
 
 
@@ -89,6 +104,10 @@ This work explores how AI systems can be designed
 as controllable systems by construction —
 not governed externally after deployment.
 
+
+# Principle
+Feedback loops are necessary.
+Runtime control is inevitable.
 
 # Paper
 Submitted to ICAI-ECAI 2026 SAFER Workshop
