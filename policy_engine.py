@@ -9,6 +9,8 @@ from models import (
     DecisionType,
 )
 
+from redaction import redact_answer
+
 
 def policy_engine_enforce_rules(
     user: User,
@@ -81,21 +83,13 @@ def policy_engine_enforce_rules(
         )
 
     # Rule 5:
-    # If the AI risk reviewer detected medium risk, allow only a constrained answer.
-    #
-    # Note:
-    # For Issue 5, we do not use redaction.py yet.
-    # Issue 6 can replace this temporary constrained answer with redact_answer().
+    # If the AI risk reviewer detected medium risk, allow only a redacted answer.
     if risk_review.risk_level == "medium":
         return PolicyDecision(
             decision=DecisionType.CONSTRAIN,
             reason="Allowed only with constrained answer because medium risk was detected.",
             allowed_documents=allowed_documents,
-            constrained_answer=(
-                "I can answer only using information that is allowed for your "
-                "department and clearance level. Restricted or cross-department "
-                "details have been omitted."
-            ),
+            constrained_answer=redact_answer(action.intended_answer),
         )
 
     # Rule 6:
