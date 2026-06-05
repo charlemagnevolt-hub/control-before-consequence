@@ -4,6 +4,7 @@ from agents import ai_agent_1_propose_action, ai_agent_2_review_risk
 from policy_engine import policy_engine_enforce_rules
 from human_approval import request_human_approval
 from executor import executor_run
+from audit import audit_log
 
 
 def secure_document_chatbot(user: User, user_query: str) -> None:
@@ -17,6 +18,8 @@ def secure_document_chatbot(user: User, user_query: str) -> None:
     Rule-based policy engine enforces hard constraints
         ↓
     Human approval if needed
+        ↓
+    Audit log records decision
         ↓
     Executor runs approved action
     """
@@ -66,6 +69,15 @@ def secure_document_chatbot(user: User, user_query: str) -> None:
     print(policy_decision.reason)
 
     # Step 5:
+    # Record the interaction before showing the final response.
+    audit_log(
+        user=user,
+        action=proposed_action,
+        risk_review=risk_review,
+        policy_decision=policy_decision,
+    )
+
+    # Step 6:
     # The executor is the only place where the final chatbot response is shown.
     executor_run(
         action=proposed_action,
@@ -86,3 +98,4 @@ if __name__ == "__main__":
         user=employee,
         user_query="Can you summarize the HR leave policy and any related defense project archive notes?",
     )
+ 
