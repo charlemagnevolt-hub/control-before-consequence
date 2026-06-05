@@ -3,6 +3,8 @@ from document_store import DOCUMENTS
 from agents import ai_agent_1_propose_action, ai_agent_2_review_risk
 from policy_engine import policy_engine_enforce_rules
 from human_approval import request_human_approval
+from executor import executor_run
+from audit import audit_log
 
 
 def secure_document_chatbot(user: User, user_query: str) -> None:
@@ -17,10 +19,9 @@ def secure_document_chatbot(user: User, user_query: str) -> None:
         ↓
     Human approval if needed
         ↓
+    Audit log records decision
+        ↓
     Executor runs approved action
-
-    At this stage of the project, the final executor and audit logger may not
-    exist yet. For now, main.py directly prints the final safe response.
     """
 
     print(f"\nUser question: {user_query}")
@@ -63,22 +64,25 @@ def secure_document_chatbot(user: User, user_query: str) -> None:
                 reason="Human approver rejected the action.",
             )
 
-    # Temporary final output.
-    # Issue 8 will move this logic into executor.py.
     print("\nPolicy decision:")
     print(policy_decision.decision.value)
     print(policy_decision.reason)
 
-    print("\nChatbot response:")
+    # Step 5:
+    # Record the interaction before showing the final response.
+    audit_log(
+        user=user,
+        action=proposed_action,
+        risk_review=risk_review,
+        policy_decision=policy_decision,
+    )
 
-    if policy_decision.decision == DecisionType.ALLOW:
-        print(proposed_action.intended_answer)
-
-    elif policy_decision.decision == DecisionType.CONSTRAIN:
-        print(policy_decision.constrained_answer)
-
-    else:
-        print("Sorry, I cannot provide that information because it is restricted.")
+    # Step 6:
+    # The executor is the only place where the final chatbot response is shown.
+    executor_run(
+        action=proposed_action,
+        decision=policy_decision,
+    )
 
 
 if __name__ == "__main__":
