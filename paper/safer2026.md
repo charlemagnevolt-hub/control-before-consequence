@@ -581,11 +581,37 @@ These capabilities may provide a practical path toward safer deployment of highl
 
 The SAFER initiative seeks to identify critical gaps, capabilities, and governance mechanisms required for trustworthy agentic AI ecosystems. Runtime admissibility is proposed as one such capability, specifically addressing the execution-control problem that emerges as agent autonomy increases.
 
-## 7. Discussion and Limitations
+7. Discussion and Limitations
 
 The Control Before Consequence framework and the Runtime Admissibility Gate MVP are intended to demonstrate a new execution-control perspective for agentic AI systems.
 
 The objective is not to provide a complete governance solution, but to identify a missing control capability that becomes increasingly important as AI systems acquire greater agency and autonomy.
+
+A central question is whether runtime admissibility is merely another name for a policy engine or approval workflow.
+
+This paper argues that these concepts operate at different layers.
+
+A policy engine is a mechanism for evaluating rules.
+
+An approval workflow is a mechanism for escalating decisions.
+
+Runtime admissibility defines the governance decision problem itself:
+
+May a proposed action become consequential under the current constraints?
+
+A policy engine may be used to evaluate admissibility.
+
+An approval workflow may be used to resolve admissibility.
+
+However, neither is equivalent to admissibility itself.
+
+The distinction is analogous to the relationship between authentication and authorization. Authentication establishes identity, while authorization determines whether an action is permitted.
+
+Similarly, policy engines and approval workflows may support admissibility decisions, but they do not define the admissibility decision problem.
+
+Runtime admissibility therefore operates at the governance level rather than the implementation level.
+
+The contribution is not a new policy mechanism, but the explicit framing of execution control as a governance capability for agentic AI systems.
 
 Several limitations should be acknowledged.
 
