@@ -285,7 +285,114 @@ The purpose of these reference applications is not to provide production functio
 
 ## 5. Runtime Admissibility Threat Model
 
-[TBD]
+Agentic systems increasingly possess the ability to initiate externally consequential actions.
+
+Examples include:
+
+* sending emails
+* updating records
+* executing workflows
+* invoking APIs
+* modifying infrastructure
+* transferring funds
+
+In such systems, risks emerge not only from generated content but from the execution of actions.
+
+The threat model therefore focuses on the conditions under which consequential actions become executable.
+
+### 5.1 Threat Assumptions
+
+The threat model assumes that:
+
+* agents may generate unsafe actions
+* policies may be incomplete
+* context may be uncertain
+* users may provide adversarial instructions
+* execution environments may change over time
+
+Consequently, execution cannot be assumed admissible by default.
+
+### 5.2 Core Threat
+
+The primary threat is:
+
+> A consequential action executes before admissibility has been resolved.
+
+Examples include:
+
+* sensitive information sent externally
+* unauthorized record modification
+* unintended API invocation
+* irreversible state changes
+* unauthorized financial transactions
+
+### 5.3 Threat Categories
+
+#### Unauthorized Disclosure
+
+Examples include the transmission of sensitive information to unintended recipients.
+
+Potential impact:
+
+* confidentiality breaches
+* regulatory violations
+* reputational damage
+
+#### Unauthorized Modification
+
+Examples include unintended updates to operational or customer records.
+
+Potential impact:
+
+* integrity violations
+* corrupted business processes
+* inconsistent system state
+
+#### Unauthorized Execution
+
+Examples include workflow activation or API invocation without appropriate authorization.
+
+Potential impact:
+
+* operational disruption
+* uncontrolled automation
+* cascading failures
+
+#### Irreversible Actions
+
+Examples include payments, deletions, or permanent state transitions.
+
+Potential impact:
+
+* financial loss
+* permanent data loss
+* non-recoverable consequences
+
+### 5.4 Security Objective
+
+The objective of runtime admissibility is not to determine whether an action is useful or desirable.
+
+The objective is to determine whether an action is admissible.
+
+Formally:
+
+```text
+Adm(s,a,C)
+```
+
+must be resolved before:
+
+```text
+execute(a)
+```
+
+The Control Before Consequence principle can therefore be expressed as:
+
+```text
+∀a : execute(a) ⇒ Adm(s,a,C) = ALLOW
+```
+
+This property establishes the execution-control boundary of the system.
 
 ## 6. Implications for a Trustworthy Agentic AI Roadmap
 
