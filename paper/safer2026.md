@@ -142,11 +142,64 @@ In other words:
 
 ### 4.1 Architecture
 
-[TBD]
+To demonstrate the practical applicability of runtime admissibility, we implemented a lightweight Runtime Admissibility Gate MVP.
+
+The prototype introduces an execution-control boundary between an AI agent and externally consequential actions.
+
+The architecture consists of four primary components:
+
+1. Proposed Action
+2. Policy Engine
+3. Execution Decision
+4. Decision Ledger
+
+The execution flow is illustrated below:
+
+```text
+AI Agent
+      ↓
+Proposed Action
+      ↓
+Admissibility Evaluation
+      ↓
+ALLOW / BLOCK / REQUIRE_APPROVAL
+      ↓
+Execution Decision
+      ↓
+Ledger Record
+```
+
+The gate evaluates admissibility before execution occurs.
+
+Only actions that satisfy admissibility requirements may proceed to execution.
+
+Actions that violate constraints are blocked, while actions requiring additional review are suspended pending approval.
+
+The objective of the MVP is not to provide a complete governance platform but to demonstrate the execution-control boundary proposed by the Control Before Consequence framework.
 
 ### 4.2 Policy Engine
 
-[TBD]
+The policy engine represents the decision-making component of the Runtime Admissibility Gate.
+
+It evaluates proposed actions against applicable constraints and produces one of three admissibility decisions:
+
+* ALLOW
+* BLOCK
+* REQUIRE_APPROVAL
+
+The policy engine serves as the implementation layer of the runtime admissibility function:
+
+```text
+Adm(s,a,C)
+```
+
+Within the MVP, policy evaluation is intentionally simple and transparent.
+
+The purpose is not to optimize policy complexity but to demonstrate how admissibility decisions can be enforced before execution.
+
+Different action types may be evaluated using different policies while sharing the same admissibility decision space.
+
+This design allows the framework to scale across heterogeneous actions while maintaining a consistent execution-control model.
 
 ### 4.3 Approval Queue
 
