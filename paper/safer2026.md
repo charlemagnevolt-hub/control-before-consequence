@@ -467,7 +467,21 @@ The purpose of this work is to establish runtime admissibility as a distinct res
 
 ## 8. Conclusion
 
-[TBD]
+As AI systems evolve from information-processing systems into increasingly autonomous actors, the governance challenge shifts from understanding generated content to controlling consequential action.
+
+Current governance approaches provide important mechanisms for transparency, accountability, auditing, and compliance. However, these mechanisms often operate before action generation or after action execution. As agentic systems acquire the ability to initiate workflows, invoke external services, modify records, and interact with critical infrastructure, a new governance capability becomes necessary.
+
+This paper introduced the Control Before Consequence framework and proposed Runtime Admissibility as a mechanism for evaluating whether a proposed action may become externally consequential under current constraints.
+
+We formalized runtime admissibility as an execution-control problem, defined an admissibility decision space consisting of ALLOW, BLOCK, and REQUIRE_APPROVAL, and presented a Runtime Admissibility Gate MVP that demonstrates these concepts through reference applications including email actions, record updates, and API calls.
+
+The central contribution of this work is the argument that safe agent ecosystems require governance mechanisms that operate at the point of execution rather than exclusively at the levels of model development, content generation, or post-hoc accountability.
+
+We therefore propose runtime admissibility as a candidate roadmap capability for trustworthy agentic AI systems.
+
+Future work should explore standardized admissibility models, interoperable policy frameworks, approval workflows, execution-control architectures, and governance mechanisms capable of operating across heterogeneous agent ecosystems.
+
+As agent autonomy continues to increase, determining whether an action may execute may become as important as determining whether a model can generate it.
 
 ## References
 
