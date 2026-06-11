@@ -203,11 +203,85 @@ This design allows the framework to scale across heterogeneous actions while mai
 
 ### 4.3 Approval Queue
 
-[TBD]
+The Runtime Admissibility Gate may return a decision of REQUIRE_APPROVAL.
+
+In the current MVP, actions requiring approval are suspended and not executed.
+
+Conceptually, a future approval queue would store pending actions until a human or supervisory process resolves the admissibility decision.
+
+The approval flow can be represented as:
+
+```text
+Proposed Action
+      ↓
+Admissibility Evaluation
+      ↓
+REQUIRE_APPROVAL
+      ↓
+Approval Queue
+      ↓
+Human Review
+      ↓
+ALLOW / BLOCK
+      ↓
+Execution Decision
+      ↓
+Execute / Stop
+      ↓
+Ledger Record
+```
+
+The approval queue does not replace runtime admissibility.
+
+Instead, it extends the REQUIRE_APPROVAL branch of the admissibility decision space.
+
+Actions that cannot be automatically admitted are temporarily suspended until additional review is completed.
+
+This mechanism allows governance controls to intervene before externally consequential actions occur.
 
 ### 4.4 Reference Applications
 
-[TBD]
+The MVP currently implements three reference applications that demonstrate runtime admissibility across different classes of consequential actions.
+
+#### Email Actions
+
+The first reference application evaluates email actions.
+
+Examples include:
+
+* internal communication
+* external communication
+* sensitive information transfer
+
+Depending on the context, the admissibility gate may allow, block, or require approval before execution.
+
+#### Record Updates
+
+The second reference application evaluates record modification actions.
+
+Examples include:
+
+* customer record updates
+* operational data modifications
+* workflow state changes
+
+Higher-risk modifications may require approval before execution.
+
+#### API Calls
+
+The third reference application evaluates API invocation requests.
+
+Examples include:
+
+* service integrations
+* workflow orchestration
+* external system interactions
+
+Risk-sensitive API calls may require approval before execution.
+
+Together, these examples demonstrate that runtime admissibility is not limited to a single action type but can be applied consistently across heterogeneous consequential actions.
+
+The purpose of these reference applications is not to provide production functionality but to make the execution-control boundary observable and testable in code.
 
 ## 5. Runtime Admissibility Threat Model
 
