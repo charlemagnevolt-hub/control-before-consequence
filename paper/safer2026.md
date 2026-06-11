@@ -1,6 +1,4 @@
-# Control Before Consequence:
-
-## Runtime Admissibility for Safe Agentic AI Systems
+# Control Before Consequence: Runtime Admissibility for Safe Agentic AI Systems
 
 ### Abstract
 
@@ -226,7 +224,23 @@ In other words:
 
 > No externally consequential action should execute unless admissibility has been explicitly resolved.
 
+**Figure 1: Control Before Consequence Framework**
+
+```text
+Agent Reasoning
+      ↓
+Proposed Action
+      ↓
+Runtime Admissibility
+      ↓
+ALLOW / BLOCK / REQUIRE_APPROVAL
+      ↓
+Execution Decision
+```
+
 ## 4. Runtime Admissibility Gate MVP
+
+The reference implementation is maintained as an accompanying GitHub artifact in the `admissibility-gate-mvp` repository.
 
 ### 4.1 Architecture
 
@@ -257,6 +271,22 @@ Execution Decision
 Ledger Record
 ```
 
+**Figure 2: Runtime Admissibility Gate MVP Architecture**
+
+```text
+AI Agent
+      ↓
+Proposed Action
+      ↓
+Policy Engine
+      ↓
+Admissibility Decision
+      ↓
+Execution / Suspension / Block
+      ↓
+Ledger Record
+```
+
 The gate evaluates admissibility before execution occurs.
 
 Only actions that satisfy admissibility requirements may proceed to execution.
@@ -264,6 +294,8 @@ Only actions that satisfy admissibility requirements may proceed to execution.
 Actions that violate constraints are blocked, while actions requiring additional review are suspended pending approval.
 
 The objective of the MVP is not to provide a complete governance platform but to demonstrate the execution-control boundary proposed by the Control Before Consequence framework.
+
+The reference implementation is maintained as an accompanying GitHub artifact in the `admissibility-gate-mvp` repository.
 
 ### 4.2 Policy Engine
 
@@ -573,3 +605,28 @@ As agent autonomy continues to increase, determining whether an action may execu
 
 ## References
 
+This work builds on and extends existing discussions in AI safety, AI governance, runtime verification, trustworthy AI, and autonomous systems.
+
+* Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., & Mané, D. (2016). *Concrete Problems in AI Safety*. arXiv:1606.06565.
+
+* European Union. (2024). *Regulation (EU) 2024/1689 Laying Down Harmonised Rules on Artificial Intelligence (Artificial Intelligence Act)*.
+
+* IBM. (2020). *Principles for Trust and Transparency in AI*. IBM Corporation.
+
+* Maybury, M. T. (2025). *Mitigating Biased, Brittle and Baroque Generative AI*. Proceedings of the IEEE International Conference on AI and Data Analytics (ICAD 2025).
+
+* Maybury, M. T. (2021). *Trusted Artificial Intelligence at Scale: Three Grand Challenges for AI*. IEEE Computer Society.
+
+* National Institute of Standards and Technology (NIST). (2023). *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*. NIST AI 100-1.
+
+* U.S. Department of Defense. (2012, updated 2023). *Directive 3000.09: Autonomy in Weapon Systems*.
+
+* Wahlster, W. (2023). *Towards Trustworthy Hybrid AI Systems*. German Research Center for Artificial Intelligence (DFKI).
+
+* Rossi, F. (2019). *Building Trustworthy AI*. Communications of the ACM, 62(8), 40–43.
+
+* Russell, S. (2019). *Human Compatible: Artificial Intelligence and the Problem of Control*. Viking.
+
+* Weidinger, L., Mellor, J., Rauh, M., Griffin, C., Uesato, J., Huang, P.-S., Cheng, M., Glaese, M., Balle, B., Kasirzadeh, A., et al. (2022). *Taxonomy of Risks Posed by Language Models*. Proceedings of ACM FAccT 2022.
+
+* Anthropic. (2023). *Constitutional AI: Harmlessness from AI Feedback*. Anthropic Research.
