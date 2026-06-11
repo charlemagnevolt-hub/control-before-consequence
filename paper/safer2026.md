@@ -8,7 +8,7 @@ This paper introduces the Control Before Consequence framework and proposes Runt
 
 We formalize runtime admissibility as a decision function operating over system state, proposed actions, and constraint sets, producing one of three outcomes: ALLOW, BLOCK, or REQUIRE_APPROVAL. We further present a Runtime Admissibility Gate MVP that demonstrates the concept through reference applications including email actions, record updates, and API invocations.
 
-The paper argues that safe agent ecosystems require governance mechanisms that operate at runtime rather than exclusively during development, evaluation, or post-execution review. We therefore propose runtime admissibility as a candidate roadmap capability for trustworthy agentic AI systems and discuss its implications for future execution-control architectures, policy frameworks, and governance standards.
+The paper argues that safe agent ecosystems require governance mechanisms that operate at runtime rather than exclusively during development, evaluation, or post-execution review. We therefore propose runtime admissibility as a foundational roadmap capability for trustworthy agentic AI systems and discuss its implications for future execution-control architectures, policy frameworks, and governance standards.
 
 Keywords: Agentic AI, AI Governance, Runtime Admissibility, Control Before Consequence, Safe Agents, Execution Control, AI Safety.
 
@@ -46,7 +46,7 @@ We conclude by discussing the implications of runtime admissibility for future t
 
 The rapid advancement of agentic AI systems challenges many assumptions underlying current AI governance approaches.
 
-Existing governance frameworks have made significant progress in addressing concerns related to transparency, accountability, fairness, robustness, security, compliance, and oversight. Regulatory initiatives, standards, and risk management frameworks increasingly provide guidance for the responsible development and deployment of AI systems.
+Existing governance frameworks have made significant progress in addressing concerns related to transparency, accountability, fairness, robustness, security, compliance, and oversight. Examples include the NIST AI Risk Management Framework (NIST, 2023), the European Union AI Act (European Union, 2024), and emerging trustworthy AI initiatives across industry and academia. Regulatory initiatives, standards, and risk management frameworks increasingly provide guidance for the responsible development and deployment of AI systems.
 
 However, many of these approaches were developed in a context where AI systems primarily generated information rather than initiated actions.
 
@@ -122,7 +122,7 @@ We introduce Runtime Admissibility as the decision process that determines wheth
 
 Runtime admissibility operates at the boundary between agent reasoning and action execution. It evaluates a proposed action against the current system state and the applicable constraints before execution is permitted.
 
-Unlike traditional guardrails, which primarily focus on inputs, outputs, or generated content, runtime admissibility focuses on execution itself. The objective is not to determine whether generated content is acceptable, but whether a proposed action should be allowed to cause a state transition in the external environment.
+Unlike traditional guardrails, which primarily focus on inputs, outputs, or generated content, runtime admissibility focuses on execution itself. Related approaches have focused on model safety, alignment, transparency, and risk mitigation (Amodei et al., 2016; Rossi, 2019). Runtime admissibility focuses on a different question: whether a proposed action should be allowed to execute under current runtime constraints. The objective is not to determine whether generated content is acceptable, but whether a proposed action should be allowed to cause a state transition in the external environment.
 
 Runtime admissibility therefore introduces an explicit execution-control boundary between agent cognition and consequential action.
 
@@ -405,7 +405,7 @@ The purpose of these reference applications is not to provide production functio
 
 ## 5. Runtime Admissibility Threat Model
 
-Agentic systems increasingly possess the ability to initiate externally consequential actions.
+Agentic systems increasingly possess the ability to initiate externally consequential actions. The risks associated with increasingly autonomous systems have been discussed in the context of AI safety, trustworthy AI, and autonomous decision systems (Russell, 2019; Maybury, 2025).
 
 Examples include:
 
@@ -563,6 +563,8 @@ Future roadmap activities may therefore include:
 
 These capabilities may provide a practical path toward safer deployment of highly autonomous agentic systems.
 
+The SAFER initiative seeks to identify critical gaps, capabilities, and governance mechanisms required for trustworthy agentic AI ecosystems. Runtime admissibility is proposed as one such capability, specifically addressing the execution-control problem that emerges as agent autonomy increases.
+
 ## 7. Discussion and Limitations
 
 The Control Before Consequence framework and the Runtime Admissibility Gate MVP are intended to demonstrate a new execution-control perspective for agentic AI systems.
@@ -601,7 +603,7 @@ We therefore propose runtime admissibility as a candidate roadmap capability for
 
 Future work should explore standardized admissibility models, interoperable policy frameworks, approval workflows, execution-control architectures, and governance mechanisms capable of operating across heterogeneous agent ecosystems.
 
-As agent autonomy continues to increase, determining whether an action may execute may become as important as determining whether a model can generate it.
+As agent autonomy continues to increase, determining whether an action may execute will likely become as important as determining whether a model can generate it.
 
 ## References
 
