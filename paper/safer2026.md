@@ -445,7 +445,25 @@ These capabilities may provide a practical path toward safer deployment of highl
 
 ## 7. Discussion and Limitations
 
-[TBD]
+The Control Before Consequence framework and the Runtime Admissibility Gate MVP are intended to demonstrate a new execution-control perspective for agentic AI systems.
+
+The objective is not to provide a complete governance solution, but to identify a missing control capability that becomes increasingly important as AI systems acquire greater agency and autonomy.
+
+Several limitations should be acknowledged.
+
+First, the current MVP implements only a small set of reference applications. The prototype demonstrates admissibility decisions for email actions, record updates, and API calls, but does not yet address the full diversity of consequential actions that may emerge in future agent ecosystems.
+
+Second, the policy engine is intentionally simplified. Real-world deployments would require significantly more sophisticated policy evaluation mechanisms, contextual reasoning, and integration with organizational governance frameworks.
+
+Third, the framework does not eliminate the need for existing governance mechanisms. Runtime admissibility complements rather than replaces transparency, observability, auditing, accountability, security controls, and regulatory compliance.
+
+Fourth, the current work focuses on execution control rather than agent cognition. The framework does not attempt to solve model alignment, training safety, hallucinations, bias, or broader questions of AI behavior.
+
+Finally, significant research remains necessary to determine how admissibility policies can be standardized, validated, benchmarked, and governed across heterogeneous agent ecosystems.
+
+These limitations should be viewed as opportunities for future research rather than weaknesses of the proposed approach.
+
+The purpose of this work is to establish runtime admissibility as a distinct research area and governance capability for safe agentic AI systems.
 
 ## 8. Conclusion
 
