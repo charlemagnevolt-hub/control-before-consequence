@@ -4,7 +4,15 @@
 
 ### Abstract
 
-[TBD]
+As AI systems evolve from information-processing tools into increasingly autonomous actors, governance challenges shift from understanding generated content to controlling consequential action. Existing governance mechanisms provide important capabilities for transparency, accountability, auditing, compliance, and safety evaluation. However, these mechanisms frequently operate before action generation or after action execution, leaving a governance gap at the point where AI-generated actions become executable.
+
+This paper introduces the Control Before Consequence framework and proposes Runtime Admissibility as a governance capability for determining whether a proposed action may become externally consequential under current constraints. Runtime admissibility establishes an execution-control boundary between agent reasoning and action execution by evaluating proposed actions against system state and applicable constraints before execution occurs.
+
+We formalize runtime admissibility as a decision function operating over system state, proposed actions, and constraint sets, producing one of three outcomes: ALLOW, BLOCK, or REQUIRE_APPROVAL. We further present a Runtime Admissibility Gate MVP that demonstrates the concept through reference applications including email actions, record updates, and API invocations.
+
+The paper argues that safe agent ecosystems require governance mechanisms that operate at runtime rather than exclusively during development, evaluation, or post-execution review. We therefore propose runtime admissibility as a candidate roadmap capability for trustworthy agentic AI systems and discuss its implications for future execution-control architectures, policy frameworks, and governance standards.
+
+Keywords: Agentic AI, AI Governance, Runtime Admissibility, Control Before Consequence, Safe Agents, Execution Control, AI Safety.
 
 ## 1. Introduction
 
