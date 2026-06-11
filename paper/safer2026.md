@@ -274,17 +274,35 @@ Ledger Record
 **Figure 2: Runtime Admissibility Gate MVP Architecture**
 
 ```text
+```text
 AI Agent
-      ↓
+    │
+    ▼
 Proposed Action
-      ↓
-Policy Engine
-      ↓
-Admissibility Decision
-      ↓
-Execution / Suspension / Block
-      ↓
-Ledger Record
+    │
+    ▼
+Runtime Admissibility Engine
+    │
+    ▼
+┌────────────────────────────┐
+│ Decision Space             │
+│                            │
+│ • ALLOW                    │
+│ • BLOCK                    │
+│ • REQUIRE_APPROVAL         │
+└────────────────────────────┘
+              │
+              ▼
+       Approval Queue
+              │
+              ▼
+     Execution Decision
+              │
+              ▼
+        Action Execution
+              │
+              ▼
+        Decision Ledger
 ```
 
 The gate evaluates admissibility before execution occurs.
@@ -294,8 +312,6 @@ Only actions that satisfy admissibility requirements may proceed to execution.
 Actions that violate constraints are blocked, while actions requiring additional review are suspended pending approval.
 
 The objective of the MVP is not to provide a complete governance platform but to demonstrate the execution-control boundary proposed by the Control Before Consequence framework.
-
-The reference implementation is maintained as an accompanying GitHub artifact in the `admissibility-gate-mvp` repository.
 
 ### 4.2 Policy Engine
 
