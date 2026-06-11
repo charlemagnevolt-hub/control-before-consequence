@@ -396,7 +396,52 @@ This property establishes the execution-control boundary of the system.
 
 ## 6. Implications for a Trustworthy Agentic AI Roadmap
 
-[TBD]
+Current AI governance initiatives primarily focus on model development, model evaluation, transparency, safety testing, compliance, and accountability.
+
+These capabilities remain essential.
+
+However, as AI systems increasingly transition from information generation to autonomous action execution, a new governance gap emerges.
+
+Existing governance frameworks often specify what systems should do, but provide limited mechanisms for determining whether a proposed action should be allowed to execute under runtime conditions.
+
+This gap becomes increasingly important as agentic systems gain the ability to:
+
+* initiate workflows
+* invoke external services
+* modify records
+* interact with critical infrastructure
+* perform financially consequential actions
+
+The Control Before Consequence framework suggests that safe agent ecosystems require an additional governance capability:
+
+> Runtime Admissibility.
+
+Runtime admissibility introduces an execution-control layer between agent reasoning and externally consequential action.
+
+Rather than focusing exclusively on model behavior, runtime admissibility evaluates whether a proposed action may become consequential under the current constraints.
+
+Within a Trustworthy Agentic AI Roadmap, runtime admissibility may therefore be considered a foundational capability alongside:
+
+* transparency
+* observability
+* auditability
+* accountability
+* safety evaluation
+
+Unlike these capabilities, runtime admissibility directly governs execution.
+
+As agentic systems become increasingly autonomous, execution-control mechanisms may become as important as model-level governance mechanisms.
+
+Future roadmap activities may therefore include:
+
+* standardized admissibility models
+* interoperable policy engines
+* approval workflows
+* execution-control architectures
+* admissibility benchmarks
+* runtime governance standards
+
+These capabilities may provide a practical path toward safer deployment of highly autonomous agentic systems.
 
 ## 7. Discussion and Limitations
 
