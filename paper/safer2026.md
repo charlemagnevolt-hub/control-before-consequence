@@ -8,7 +8,33 @@
 
 ## 1. Introduction
 
-[TBD]
+Artificial intelligence systems are rapidly evolving from information-processing tools into increasingly autonomous actors capable of initiating and executing actions in the external world.
+
+Recent advances in large language models, multimodal systems, agent architectures, tool use, workflow orchestration, and autonomous planning have significantly expanded the operational capabilities of AI systems. These systems are no longer limited to generating content. They can initiate workflows, invoke APIs, modify records, communicate with external parties, and interact with critical infrastructure.
+
+As agency increases, the governance challenge changes fundamentally.
+
+Historically, AI governance has focused on model development, transparency, fairness, accountability, safety evaluation, and regulatory compliance. These mechanisms remain essential. However, many existing governance approaches assume a separation between reasoning and action that becomes increasingly difficult to maintain in highly autonomous systems.
+
+The central challenge is therefore no longer limited to what AI systems know or generate. It increasingly concerns what AI systems are allowed to do and under what conditions their actions may become consequential.
+
+This paper argues that safe agentic AI systems require a new governance capability that operates at the boundary between agent reasoning and action execution.
+
+We introduce the Control Before Consequence framework and propose Runtime Admissibility as the decision process that determines whether a proposed action may become externally consequential under current constraints.
+
+To illustrate this concept, we present a Runtime Admissibility Gate MVP that implements a minimal execution-control layer capable of producing admissibility decisions before action execution occurs.
+
+The paper makes four contributions:
+
+1. It identifies a governance gap between agent reasoning and consequential action execution.
+
+2. It introduces Runtime Admissibility as a distinct execution-control capability.
+
+3. It presents a formal model for admissibility evaluation.
+
+4. It demonstrates the concept through a working Runtime Admissibility Gate MVP.
+
+We conclude by discussing the implications of runtime admissibility for future trustworthy agentic AI roadmaps and governance architectures.
 
 ## 2. Limitations of Current Governance Paradigms
 
