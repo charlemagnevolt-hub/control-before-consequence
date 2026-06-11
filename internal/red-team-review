@@ -1,0 +1,101 @@
+# Red Team Review
+
+## Criticism 1: Is Runtime Admissibility Actually New?
+
+The paper introduces Runtime Admissibility as a new governance capability.
+
+However, a reviewer may argue that the proposed concept overlaps with:
+
+* policy engines
+* authorization systems
+* runtime verification
+* workflow approval systems
+* AI guardrails
+
+The paper currently explains the distinction conceptually, but additional clarification may be required to establish novelty.
+
+### Potential Response
+
+The contribution is not a new policy mechanism.
+
+The contribution is the framing of admissibility as an execution-control decision that operates at the boundary between agent reasoning and consequential action.
+
+The paper argues that this control point represents a distinct governance capability regardless of the underlying policy implementation.
+
+---
+
+## Criticism 2: Limited Empirical Validation
+
+The MVP demonstrates feasibility but does not provide quantitative evaluation.
+
+A reviewer may ask:
+
+* Does runtime admissibility reduce incidents?
+* Does it improve safety?
+* How does it compare to existing approaches?
+
+### Potential Response
+
+The paper is positioned as a roadmap and governance contribution rather than an empirical evaluation study.
+
+The MVP serves as a proof-of-concept reference implementation.
+
+Future work should include benchmarking and comparative evaluation.
+
+---
+
+## Criticism 3: Relationship to Existing Governance Frameworks
+
+A reviewer may argue that governance frameworks already address execution decisions indirectly through compliance, risk management, and approval processes.
+
+### Potential Response
+
+The paper does not claim that governance frameworks are absent.
+
+Instead, it argues that an explicit runtime execution-control layer is often missing from current governance architectures.
+
+Runtime admissibility complements rather than replaces existing governance mechanisms.
+
+---
+
+## Criticism 4: Scope of Consequential Action
+
+The paper frequently refers to "externally consequential actions."
+
+A reviewer may ask:
+
+What qualifies as consequential?
+
+Is the definition operationally precise?
+
+### Potential Response
+
+Future work should provide a more formal taxonomy of consequential actions, risk levels, and admissibility criteria.
+
+The current paper intentionally focuses on the governance principle rather than a complete ontology of action types.
+
+---
+
+## Criticism 5: Generalizability Beyond the MVP
+
+The MVP currently demonstrates:
+
+* email actions
+* record updates
+* API calls
+
+A reviewer may question whether the framework scales to:
+
+* multi-agent systems
+* autonomous workflows
+* robotics
+* financial systems
+* critical infrastructure
+
+### Potential Response
+
+The MVP is intentionally minimal.
+
+The contribution is the execution-control model, not the specific action implementations.
+
+The same admissibility framework can be extended to broader classes of consequential actions.
