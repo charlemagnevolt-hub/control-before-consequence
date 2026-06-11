@@ -38,7 +38,61 @@ We conclude by discussing the implications of runtime admissibility for future t
 
 ## 2. Limitations of Current Governance Paradigms
 
-[TBD]
+The rapid advancement of agentic AI systems challenges many assumptions underlying current AI governance approaches.
+
+Existing governance frameworks have made significant progress in addressing concerns related to transparency, accountability, fairness, robustness, security, compliance, and oversight. Regulatory initiatives, standards, and risk management frameworks increasingly provide guidance for the responsible development and deployment of AI systems.
+
+However, many of these approaches were developed in a context where AI systems primarily generated information rather than initiated actions.
+
+As a result, governance mechanisms often focus on three stages:
+
+* model development
+* model evaluation
+* post-execution accountability
+
+These mechanisms are necessary but increasingly insufficient for highly autonomous systems capable of initiating externally consequential actions.
+
+### 2.1 Governance Does Not Automatically Translate Into Runtime Control
+
+A system may satisfy governance requirements while still executing actions that should not occur under specific runtime conditions.
+
+Transparency may explain why an action occurred.
+
+Auditing may record that an action occurred.
+
+Accountability may determine responsibility after an action occurred.
+
+None of these mechanisms necessarily determine whether the action should have been allowed to execute in the first place.
+
+This distinction becomes increasingly important as agentic systems acquire greater operational autonomy.
+
+### 2.2 Deterministic Assumptions Break Under Agentic Behavior
+
+Many governance approaches implicitly assume predictable workflows and relatively stable operational environments.
+
+Agentic systems introduce new characteristics including:
+
+* autonomous planning
+* dynamic tool selection
+* adaptive workflows
+* interaction with external systems
+* evolving execution contexts
+
+Under such conditions, admissibility cannot always be fully determined during system design.
+
+Execution decisions increasingly depend on runtime context.
+
+### 2.3 The Missing Layer
+
+Current governance architectures often lack an explicit execution-control layer positioned between agent reasoning and consequential action.
+
+As agent capabilities continue to expand, this missing layer becomes a significant governance gap.
+
+The challenge is not simply to determine whether an action is technically feasible.
+
+The challenge is to determine whether an action should be permitted to become consequential under current constraints.
+
+This gap motivates the need for Runtime Admissibility and the broader Control Before Consequence framework presented in the following sections.
 
 ## 3. Control Before Consequence
 
