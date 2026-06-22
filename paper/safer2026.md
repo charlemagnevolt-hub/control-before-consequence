@@ -240,7 +240,7 @@ Execution Decision
 
 ## 4. Runtime Admissibility Gate MVP
 
-The reference implementation is maintained as an accompanying GitHub artifact in the `admissibility-gate-mvp` repository.
+An accompanying reference implementation is maintained in the admissibility-gate-mvp repository and serves as a lightweight prototype for illustrating the execution-control boundary.
 
 ### 4.1 Architecture
 
@@ -274,7 +274,6 @@ Ledger Record
 **Figure 2: Runtime Admissibility Gate MVP Architecture**
 
 ```text
-```text
 AI Agent
     │
     ▼
@@ -284,25 +283,25 @@ Proposed Action
 Runtime Admissibility Engine
     │
     ▼
-┌────────────────────────────┐
-│ Decision Space             │
-│                            │
-│ • ALLOW                    │
-│ • BLOCK                    │
-│ • REQUIRE_APPROVAL         │
-└────────────────────────────┘
-              │
-              ▼
-       Approval Queue
-              │
-              ▼
-     Execution Decision
-              │
-              ▼
-        Action Execution
-              │
-              ▼
-        Decision Ledger
+┌─────────────────────────────────────┐
+│ Decision Space                      │
+│                                     │
+│ ALLOW  ─────────────────► Execute   │
+│ BLOCK  ─────────────────► Stop      │
+│ REQUIRE_APPROVAL ───────► Approval  │
+└─────────────────────────────────────┘
+                                   │
+                                   ▼
+                           Human Review
+                                   │
+                                   ▼
+                           ALLOW / BLOCK
+                                   │
+                                   ▼
+                           Execute / Stop
+                                   │
+                                   ▼
+                           Decision Ledger
 ```
 
 The gate evaluates admissibility before execution occurs.
@@ -581,7 +580,7 @@ These capabilities may provide a practical path toward safer deployment of highl
 
 The SAFER initiative seeks to identify critical gaps, capabilities, and governance mechanisms required for trustworthy agentic AI ecosystems. Runtime admissibility is proposed as one such capability, specifically addressing the execution-control problem that emerges as agent autonomy increases.
 
-7. Discussion and Limitations
+## 7. Discussion and Limitations
 
 The Control Before Consequence framework and the Runtime Admissibility Gate MVP are intended to demonstrate a new execution-control perspective for agentic AI systems.
 
@@ -609,7 +608,7 @@ The distinction is analogous to the relationship between authentication and auth
 
 Similarly, policy engines and approval workflows may support admissibility decisions, but they do not define the admissibility decision problem.
 
-Runtime admissibility therefore operates at the governance level rather than the implementation level.
+Runtime admissibility defines the governance decision problem, while the gate implements this decision boundary at runtime.
 
 The contribution is not a new policy mechanism, but the explicit framing of execution control as a governance capability for agentic AI systems.
 
@@ -649,15 +648,13 @@ As agent autonomy continues to increase, determining whether an action may execu
 
 ## References
 
-This work builds on and extends existing discussions in AI safety, AI governance, runtime verification, trustworthy AI, and autonomous systems.
-
 * Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., & Mané, D. (2016). *Concrete Problems in AI Safety*. arXiv:1606.06565.
 
 * European Union. (2024). *Regulation (EU) 2024/1689 Laying Down Harmonised Rules on Artificial Intelligence (Artificial Intelligence Act)*.
 
 * IBM. (2020). *Principles for Trust and Transparency in AI*. IBM Corporation.
 
-* Maybury, M. T. (2025). *Mitigating Biased, Brittle and Baroque Generative AI*. Proceedings of the IEEE International Conference on AI and Data Analytics (ICAD 2025).
+* Maybury, M. T. (2025). Mitigating Biased, Brittle and Baroque Generative AI. Proceedings of the 2025 IEEE International Conference on AI and Data Analytics (ICAD). IEEE. DOI: 10.1109/ICAD65464.2025.11114038.
 
 * Maybury, M. T. (2021). *Trusted Artificial Intelligence at Scale: Three Grand Challenges for AI*. IEEE Computer Society.
 
