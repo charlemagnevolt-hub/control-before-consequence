@@ -1,4 +1,4 @@
-# Figure 2: Runtime Admissibility Gate MVP Architecture
+**Figure 2: Runtime Admissibility Gate MVP Architecture**
 
 ```text
 AI Agent
@@ -10,24 +10,23 @@ Proposed Action
 Runtime Admissibility Engine
     │
     ▼
-┌────────────────────────────┐
-│ Decision Space             │
-│                            │
-│ • ALLOW                    │
-│ • BLOCK                    │
-│ • REQUIRE_APPROVAL         │
-└────────────────────────────┘
-              │
-              ▼
-       Approval Queue
-              │
-              ▼
-     Execution Decision
-              │
-      ┌───────┴────────┐
-      ▼                ▼
- Execute           Do Not Execute
-      │
-      ▼
- Decision Ledger
+┌─────────────────────────────────────┐
+│ Decision Space                      │
+│                                     │
+│ ALLOW  ─────────────────► Execute   │
+│ BLOCK  ─────────────────► Stop      │
+│ REQUIRE_APPROVAL ───────► Approval  │
+└─────────────────────────────────────┘
+                                   │
+                                   ▼
+                           Human Review
+                                   │
+                                   ▼
+                           ALLOW / BLOCK
+                                   │
+                                   ▼
+                           Execute / Stop
+                                   │
+                                   ▼
+                           Decision Ledger
 ```
